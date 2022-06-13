@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		747549782856C2D700704656 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 747549772856C2D700704656 /* AppDelegate.m */; };
+		7475497A2856C2D700704656 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 747549792856C2D700704656 /* GameScene.sks */; };
+		7475497C2856C2D700704656 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7475497B2856C2D700704656 /* Actions.sks */; };
+		7475497F2856C2D700704656 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7475497E2856C2D700704656 /* GameScene.m */; };
+		747549822856C2D700704656 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747549812856C2D700704656 /* GameViewController.m */; };
+		747549852856C2D700704656 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747549832856C2D700704656 /* Main.storyboard */; };
+		747549872856C2D800704656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747549862856C2D800704656 /* Assets.xcassets */; };
+		7475498A2856C2D800704656 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747549882856C2D800704656 /* LaunchScreen.storyboard */; };
+		7475498C2856C2D800704656 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7475498B2856C2D800704656 /* main.m */; };
+		747549962856C2D800704656 /* SeaMonstersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 747549952856C2D800704656 /* SeaMonstersTests.m */; };
+		747549A02856C2D800704656 /* SeaMonstersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7475499F2856C2D800704656 /* SeaMonstersUITests.m */; };
+		747549A22856C2D800704656 /* SeaMonstersUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 747549A12856C2D800704656 /* SeaMonstersUITestsLaunchTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		747549922856C2D800704656 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7475496B2856C2D700704656 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 747549722856C2D700704656;
+			remoteInfo = SeaMonsters;
+		};
+		7475499C2856C2D800704656 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7475496B2856C2D700704656 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 747549722856C2D700704656;
+			remoteInfo = SeaMonsters;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		747549732856C2D700704656 /* SeaMonsters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeaMonsters.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		747549762856C2D700704656 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		747549772856C2D700704656 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		747549792856C2D700704656 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		7475497B2856C2D700704656 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		7475497D2856C2D700704656 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		7475497E2856C2D700704656 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		747549802856C2D700704656 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		747549812856C2D700704656 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		747549842856C2D700704656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		747549862856C2D800704656 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		747549892856C2D800704656 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7475498B2856C2D800704656 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		747549912856C2D800704656 /* SeaMonstersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeaMonstersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		747549952856C2D800704656 /* SeaMonstersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeaMonstersTests.m; sourceTree = "<group>"; };
+		7475499B2856C2D800704656 /* SeaMonstersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeaMonstersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7475499F2856C2D800704656 /* SeaMonstersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeaMonstersUITests.m; sourceTree = "<group>"; };
+		747549A12856C2D800704656 /* SeaMonstersUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeaMonstersUITestsLaunchTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		747549702856C2D700704656 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7475498E2856C2D800704656 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		747549982856C2D800704656 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7475496A2856C2D700704656 = {
+			isa = PBXGroup;
+			children = (
+				747549752856C2D700704656 /* SeaMonsters */,
+				747549942856C2D800704656 /* SeaMonstersTests */,
+				7475499E2856C2D800704656 /* SeaMonstersUITests */,
+				747549742856C2D700704656 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		747549742856C2D700704656 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				747549732856C2D700704656 /* SeaMonsters.app */,
+				747549912856C2D800704656 /* SeaMonstersTests.xctest */,
+				7475499B2856C2D800704656 /* SeaMonstersUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		747549752856C2D700704656 /* SeaMonsters */ = {
+			isa = PBXGroup;
+			children = (
+				747549762856C2D700704656 /* AppDelegate.h */,
+				747549772856C2D700704656 /* AppDelegate.m */,
+				747549792856C2D700704656 /* GameScene.sks */,
+				7475497B2856C2D700704656 /* Actions.sks */,
+				7475497D2856C2D700704656 /* GameScene.h */,
+				7475497E2856C2D700704656 /* GameScene.m */,
+				747549802856C2D700704656 /* GameViewController.h */,
+				747549812856C2D700704656 /* GameViewController.m */,
+				747549832856C2D700704656 /* Main.storyboard */,
+				747549862856C2D800704656 /* Assets.xcassets */,
+				747549882856C2D800704656 /* LaunchScreen.storyboard */,
+				7475498B2856C2D800704656 /* main.m */,
+			);
+			path = SeaMonsters;
+			sourceTree = "<group>";
+		};
+		747549942856C2D800704656 /* SeaMonstersTests */ = {
+			isa = PBXGroup;
+			children = (
+				747549952856C2D800704656 /* SeaMonstersTests.m */,
+			);
+			path = SeaMonstersTests;
+			sourceTree = "<group>";
+		};
+		7475499E2856C2D800704656 /* SeaMonstersUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7475499F2856C2D800704656 /* SeaMonstersUITests.m */,
+				747549A12856C2D800704656 /* SeaMonstersUITestsLaunchTests.m */,
+			);
+			path = SeaMonstersUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		747549722856C2D700704656 /* SeaMonsters */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 747549A52856C2D800704656 /* Build configuration list for PBXNativeTarget "SeaMonsters" */;
+			buildPhases = (
+				7475496F2856C2D700704656 /* Sources */,
+				747549702856C2D700704656 /* Frameworks */,
+				747549712856C2D700704656 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SeaMonsters;
+			productName = SeaMonsters;
+			productReference = 747549732856C2D700704656 /* SeaMonsters.app */;
+			productType = "com.apple.product-type.application";
+		};
+		747549902856C2D800704656 /* SeaMonstersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 747549A82856C2D800704656 /* Build configuration list for PBXNativeTarget "SeaMonstersTests" */;
+			buildPhases = (
+				7475498D2856C2D800704656 /* Sources */,
+				7475498E2856C2D800704656 /* Frameworks */,
+				7475498F2856C2D800704656 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				747549932856C2D800704656 /* PBXTargetDependency */,
+			);
+			name = SeaMonstersTests;
+			productName = SeaMonstersTests;
+			productReference = 747549912856C2D800704656 /* SeaMonstersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7475499A2856C2D800704656 /* SeaMonstersUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 747549AB2856C2D800704656 /* Build configuration list for PBXNativeTarget "SeaMonstersUITests" */;
+			buildPhases = (
+				747549972856C2D800704656 /* Sources */,
+				747549982856C2D800704656 /* Frameworks */,
+				747549992856C2D800704656 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7475499D2856C2D800704656 /* PBXTargetDependency */,
+			);
+			name = SeaMonstersUITests;
+			productName = SeaMonstersUITests;
+			productReference = 7475499B2856C2D800704656 /* SeaMonstersUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7475496B2856C2D700704656 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					747549722856C2D700704656 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					747549902856C2D800704656 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 747549722856C2D700704656;
+					};
+					7475499A2856C2D800704656 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 747549722856C2D700704656;
+					};
+				};
+			};
+			buildConfigurationList = 7475496E2856C2D700704656 /* Build configuration list for PBXProject "SeaMonsters" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7475496A2856C2D700704656;
+			productRefGroup = 747549742856C2D700704656 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				747549722856C2D700704656 /* SeaMonsters */,
+				747549902856C2D800704656 /* SeaMonstersTests */,
+				7475499A2856C2D800704656 /* SeaMonstersUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		747549712856C2D700704656 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				747549852856C2D700704656 /* Main.storyboard in Resources */,
+				7475497A2856C2D700704656 /* GameScene.sks in Resources */,
+				747549872856C2D800704656 /* Assets.xcassets in Resources */,
+				7475498A2856C2D800704656 /* LaunchScreen.storyboard in Resources */,
+				7475497C2856C2D700704656 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7475498F2856C2D800704656 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		747549992856C2D800704656 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7475496F2856C2D700704656 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7475497F2856C2D700704656 /* GameScene.m in Sources */,
+				747549822856C2D700704656 /* GameViewController.m in Sources */,
+				7475498C2856C2D800704656 /* main.m in Sources */,
+				747549782856C2D700704656 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7475498D2856C2D800704656 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				747549962856C2D800704656 /* SeaMonstersTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		747549972856C2D800704656 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				747549A02856C2D800704656 /* SeaMonstersUITests.m in Sources */,
+				747549A22856C2D800704656 /* SeaMonstersUITestsLaunchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		747549932856C2D800704656 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 747549722856C2D700704656 /* SeaMonsters */;
+			targetProxy = 747549922856C2D800704656 /* PBXContainerItemProxy */;
+		};
+		7475499D2856C2D800704656 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 747549722856C2D700704656 /* SeaMonsters */;
+			targetProxy = 7475499C2856C2D800704656 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		747549832856C2D700704656 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				747549842856C2D700704656 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		747549882856C2D800704656 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				747549892856C2D800704656 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		747549A32856C2D800704656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		747549A42856C2D800704656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		747549A62856C2D800704656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alliconsulting.app.games.SeaMonsters;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		747549A72856C2D800704656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alliconsulting.app.games.SeaMonsters;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		747549A92856C2D800704656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alliconsulting.app.games.SeaMonstersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeaMonsters.app/SeaMonsters";
+			};
+			name = Debug;
+		};
+		747549AA2856C2D800704656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alliconsulting.app.games.SeaMonstersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeaMonsters.app/SeaMonsters";
+			};
+			name = Release;
+		};
+		747549AC2856C2D800704656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alliconsulting.app.games.SeaMonstersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SeaMonsters;
+			};
+			name = Debug;
+		};
+		747549AD2856C2D800704656 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alliconsulting.app.games.SeaMonstersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SeaMonsters;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7475496E2856C2D700704656 /* Build configuration list for PBXProject "SeaMonsters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				747549A32856C2D800704656 /* Debug */,
+				747549A42856C2D800704656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		747549A52856C2D800704656 /* Build configuration list for PBXNativeTarget "SeaMonsters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				747549A62856C2D800704656 /* Debug */,
+				747549A72856C2D800704656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		747549A82856C2D800704656 /* Build configuration list for PBXNativeTarget "SeaMonstersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				747549A92856C2D800704656 /* Debug */,
+				747549AA2856C2D800704656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		747549AB2856C2D800704656 /* Build configuration list for PBXNativeTarget "SeaMonstersUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				747549AC2856C2D800704656 /* Debug */,
+				747549AD2856C2D800704656 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7475496B2856C2D700704656 /* Project object */;
+}
