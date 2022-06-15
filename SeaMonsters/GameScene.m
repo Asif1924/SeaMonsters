@@ -11,16 +11,31 @@
 @implementation GameScene {
     SKShapeNode *_spinnyNode;
     SKLabelNode *_label;
+    //Nodes
     SKNode *joystick;
     SKNode *player;
     SKNode *joystickNob;
+    
+    //Bools
     BOOL joystickAction;
+    
+    //Measure
     CGFloat knobRadius;
+    
+    //Sprite Engine
+    CFTimeInterval previousTimeInterval;
+    BOOL playerIsFacingRight;
+    double playerSpeed;
 }
 
 - (void)didMoveToView:(SKView *)view {
     knobRadius = 50.0;
     joystickAction = NO;
+    
+    previousTimeInterval = 0;
+    playerIsFacingRight = YES;
+    playerSpeed = 4.0;
+    
     player = [self childNodeWithName:@"Player"];
     joystick = [self childNodeWithName:@"Joystick"];
     joystickNob = [joystick childNodeWithName:@"Knob"];
@@ -110,10 +125,9 @@
             [self resetKnobPosition];
         }
     }
-    
-    
-    
 }
+
+#pragma MARK RESET
 
 - (void) resetKnobPosition {
     CGPoint initialPoint = CGPointMake(0.0, 0.0);
@@ -124,13 +138,14 @@
 }
 
 
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-//    for (UITouch *t in touches) {[self touchUpAtPoint:[t locationInNode:self]];}
-}
-
-
 -(void)update:(CFTimeInterval)currentTime {
-    // Called before each frame is rendered
+    CFTimeInterval deltaTime = currentTime - previousTimeInterval;
+    previousTimeInterval = currentTime;
+    
+    double xPosition = joystickNob.position.x;
+    CGVector displacement = CGVectorMake(deltaTime * xPosition * playerSpeed, 0);
+    SKAction *move = [SKAction moveBy:displacement duration:0];
+    [player runAction:move];
 }
 
 @end
