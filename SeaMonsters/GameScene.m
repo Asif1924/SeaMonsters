@@ -102,8 +102,28 @@
     
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-//    for (UITouch *t in touches) {[self touchUpAtPoint:[t locationInNode:self]];}
+    for (UITouch *touch in touches) {
+        //[self touchUpAtPoint:[t locationInNode:self]];
+        double xJoystickCoordinate = [touch locationInNode:joystick].x;
+        CGFloat xLimit = 200.0;
+        if(xJoystickCoordinate>-xLimit && xJoystickCoordinate<xLimit){
+            [self resetKnobPosition];
+        }
+    }
+    
+    
+    
 }
+
+- (void) resetKnobPosition {
+    CGPoint initialPoint = CGPointMake(0.0, 0.0);
+    SKAction *moveBack = [SKAction moveTo:initialPoint duration:0.1];
+    moveBack.timingMode = SKActionTimingLinear;
+    [joystickNob runAction:moveBack];
+    joystickAction = NO;
+}
+
+
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
 //    for (UITouch *t in touches) {[self touchUpAtPoint:[t locationInNode:self]];}
 }
