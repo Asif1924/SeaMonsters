@@ -19,7 +19,8 @@
 }
 
 - (void)didMoveToView:(SKView *)view {
-    
+    knobRadius = 50.0;
+    joystickAction = NO;
     player = [self childNodeWithName:@"Player"];
     joystick = [self childNodeWithName:@"Joystick"];
     joystickNob = [joystick childNodeWithName:@"Knob"];
@@ -69,9 +70,9 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     // Run 'Pulse' action from 'Actions.sks'
-    //[_label runAction:[SKAction actionNamed:@"Pulse"] withKey:@"fadeInOut"];
+    [_label runAction:[SKAction actionNamed:@"Pulse"] withKey:@"fadeInOut"];
     
-    //for (UITouch *t in touches) {[self touchDownAtPoint:[t locationInNode:self]];}
+    
     for (UITouch *touch in touches) {
         if(joystickNob!=nil){
             CGPoint location = [touch locationInNode:joystick];
