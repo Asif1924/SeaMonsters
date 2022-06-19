@@ -6,7 +6,7 @@
 //
 
 #import "GameScene.h"
-
+#import "CoreMotion/CoreMotion.h"
 
 @implementation GameScene {
     SKShapeNode *_spinnyNode;
@@ -15,6 +15,7 @@
     SKNode *joystick;
     SKNode *player;
     SKNode *joystickNob;
+    CMMotionManager *motionManager;
     
     //Bools
     BOOL joystickAction;
@@ -26,6 +27,7 @@
     CFTimeInterval previousTimeInterval;
     BOOL playerIsFacingRight;
     double playerSpeed;
+    BOOL joystickDirection;
 }
 
 - (void)didMoveToView:(SKView *)view {
@@ -37,8 +39,15 @@
     playerSpeed = 4.0;
     
     player = [self childNodeWithName:@"Player"];
+    //player = [Level1 childNodeWithName:@"Player"];
+    //player = [SKSpriteNode no childNodeWithName:@"Player"];
     joystick = [self childNodeWithName:@"Joystick"];
     joystickNob = [joystick childNodeWithName:@"Knob"];
+    joystickDirection = 1;
+    
+    //[player setPosition:CGPointMake(-275, 95)];
+    player.zPosition=1;
+    //[self addChild:player];
     
     SKEmitterNode *particles = [SKEmitterNode nodeWithFileNamed:@"Bubbles"];
     if(particles!=nil){
@@ -113,15 +122,30 @@
         return;
     
     for(UITouch *touch in touches) {
-        //CGPoint position = [touch locationInView:joystick];
+        
         CGPoint position = [touch locationInNode:joystick];
         double length = sqrt(pow(position.y,2) + pow(position.x,2));
         double angle = atan2(position.y,position.x);
+        //NSLog([NSString stringWithFormat:@"position=%f, length=%f, angle=%f",position,length,angle]);
         if(knobRadius>length){
             joystickNob.position = position;
         }else{
             joystickNob.position = CGPointMake(cos(angle) * knobRadius,sin(angle)*knobRadius);
         }
+        
+        if(position.x>0 && position.x <=54){
+            NSLog(@"Right");
+            joystickDirection=1;
+            //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
+            //player.position.x +=1;
+        }
+        if(position.x<0 && position.x >=-54){
+            NSLog(@"Left");
+            joystickDirection=0;
+            //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
+            //player.position.y -=1;
+        }
+        
     }
     
 }
@@ -154,7 +178,17 @@
     double xPosition = joystickNob.position.x;
     CGVector displacement = CGVectorMake(deltaTime * xPosition * playerSpeed, 0);
     SKAction *move = [SKAction moveBy:displacement duration:0];
-    [player runAction:move];
+    //[player runAction:move];
+    
+    if(joystickDirection==1){
+        [player setPosition:CGPointMake(player.position.x+1, player.position.y)];
+    }
+    
+    if(joystickDirection==0){
+        [player setPosition:CGPointMake(player.position.x-1, player.position.y)];
+    }
+
+    
 }
 
 @end
