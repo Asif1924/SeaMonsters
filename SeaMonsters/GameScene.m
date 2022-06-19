@@ -39,6 +39,15 @@
     player = [self childNodeWithName:@"Player"];
     joystick = [self childNodeWithName:@"Joystick"];
     joystickNob = [joystick childNodeWithName:@"Knob"];
+    
+    SKEmitterNode *particles = [SKEmitterNode nodeWithFileNamed:@"Bubbles"];
+    if(particles!=nil){
+        //particles.position.x = 512;
+        [particles setPosition:CGPointMake(512, 0)];
+        [particles advanceSimulationTime:10];
+        [self addChild:particles];
+    }
+    
 //    // Setup your scene here
 //
 //    // Get label node from scene and store it for use later

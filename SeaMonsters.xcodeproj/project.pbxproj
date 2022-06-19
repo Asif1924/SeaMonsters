@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		740D825D285EE026005CFEF5 /* Bubbles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 740D825C285EE026005CFEF5 /* Bubbles.sks */; };
 		747549782856C2D700704656 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 747549772856C2D700704656 /* AppDelegate.m */; };
 		7475497A2856C2D700704656 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 747549792856C2D700704656 /* GameScene.sks */; };
 		7475497C2856C2D700704656 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7475497B2856C2D700704656 /* Actions.sks */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		740D825C285EE026005CFEF5 /* Bubbles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bubbles.sks; sourceTree = "<group>"; };
 		747549732856C2D700704656 /* SeaMonsters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeaMonsters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747549762856C2D700704656 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		747549772856C2D700704656 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				7475497B2856C2D700704656 /* Actions.sks */,
 				7475497D2856C2D700704656 /* GameScene.h */,
 				7475497E2856C2D700704656 /* GameScene.m */,
+				740D825C285EE026005CFEF5 /* Bubbles.sks */,
 				747549802856C2D700704656 /* GameViewController.h */,
 				747549812856C2D700704656 /* GameViewController.m */,
 				747549832856C2D700704656 /* Main.storyboard */,
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				747549852856C2D700704656 /* Main.storyboard in Resources */,
+				740D825D285EE026005CFEF5 /* Bubbles.sks in Resources */,
 				7475497A2856C2D700704656 /* GameScene.sks in Resources */,
 				747549872856C2D800704656 /* Assets.xcassets in Resources */,
 				7475498A2856C2D800704656 /* LaunchScreen.storyboard in Resources */,
