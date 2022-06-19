@@ -28,9 +28,11 @@
     BOOL playerIsFacingRight;
     double playerSpeed;
     BOOL joystickDirection;
+    int movementOffset;
 }
 
 - (void)didMoveToView:(SKView *)view {
+    movementOffset = 0;
     knobRadius = 50.0;
     joystickAction = NO;
     
@@ -138,12 +140,14 @@
             joystickDirection=1;
             //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
             //player.position.x +=1;
+            movementOffset=1;
         }
         if(position.x<0 && position.x >=-54){
             NSLog(@"Left");
             joystickDirection=0;
             //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
             //player.position.y -=1;
+            movementOffset=-1;
         }
         
     }
@@ -180,14 +184,19 @@
     SKAction *move = [SKAction moveBy:displacement duration:0];
     //[player runAction:move];
     
+    if(!joystickAction){
+        movementOffset=0;
+    }
+    
     if(joystickDirection==1){
-        [player setPosition:CGPointMake(player.position.x+1, player.position.y)];
+        //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
     }
     
     if(joystickDirection==0){
-        [player setPosition:CGPointMake(player.position.x-1, player.position.y)];
+        //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
     }
 
+    [player setPosition:CGPointMake(player.position.x+movementOffset, player.position.y)];
     
 }
 
