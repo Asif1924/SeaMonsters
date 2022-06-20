@@ -142,28 +142,28 @@
             joystickDirection=1;
             //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
             //player.position.x +=1;
-            movementOffsetX=1;
+            movementOffsetX=3;
         }
         if(position.x<0 && position.x >=-54){
             NSLog(@"Left");
             joystickDirection=0;
             //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
             //player.position.y -=1;
-            movementOffsetX=-1;
+            movementOffsetX=-3;
         }
         if(position.y>0 && position.y>=-54){
             NSLog(@"Up");
             joystickDirection=2;
             //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
             //player.position.x +=1;
-            movementOffsetY=1;
+            movementOffsetY=-3;
         }
         if(position.y<0 && position.y<=54){
             NSLog(@"Down");
             joystickDirection=3;
             //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
             //player.position.y -=1;
-            movementOffsetY=-1;
+            movementOffsetY=3;
         }
     }
 }
@@ -178,9 +178,11 @@
         if(xJoystickCoordinate>-xLimit && xJoystickCoordinate<xLimit){
             [self resetKnobPosition];
         }
-        if(yJoystickCoordinate-yLimit && yJoystickCoordinate<yLimit){
+        /*
+        if(yJoystickCoordinate>-yLimit && yJoystickCoordinate<yLimit){
             [self resetKnobPosition];
         }
+         */
     }
 }
 
@@ -210,6 +212,7 @@
     }
 
     [player setPosition:CGPointMake(player.position.x+movementOffsetX, player.position.y+movementOffsetY)];
+    
     
 }
 
