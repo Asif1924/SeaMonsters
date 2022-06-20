@@ -28,12 +28,12 @@
     BOOL playerIsFacingRight;
     double playerSpeed;
     BOOL joystickDirection;
-    int movementOffset;
+    int movementOffsetX;
     int movementOffsetY;
 }
 
 - (void)didMoveToView:(SKView *)view {
-    movementOffset = 0;
+    movementOffsetX = 0;
     movementOffsetY = 0;
     knobRadius = 50.0;
     joystickAction = NO;
@@ -130,7 +130,7 @@
         CGPoint position = [touch locationInNode:joystick];
         double length = sqrt(pow(position.y,2) + pow(position.x,2));
         double angle = atan2(position.y,position.x);
-        //NSLog([NSString stringWithFormat:@"position=%f, length=%f, angle=%f",position,length,angle]);
+        //NSLog(@"%@", [NSString stringWithFormat:@"position.x=%f, position.y=%f, length=%f, angle=%f",position.x,position.y,length,angle]);
         if(knobRadius>length){
             joystickNob.position = position;
         }else{
@@ -142,39 +142,43 @@
             joystickDirection=1;
             //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
             //player.position.x +=1;
-            movementOffset=1;
+            movementOffsetX=1;
         }
         if(position.x<0 && position.x >=-54){
             NSLog(@"Left");
             joystickDirection=0;
             //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
             //player.position.y -=1;
-            movementOffset=-1;
+            movementOffsetX=-1;
         }
-        if(position.y>0 && position.y <=54){
-            NSLog(@"Down");
+        if(position.y>0 && position.y>=-54){
+            NSLog(@"Up");
             joystickDirection=2;
             //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
             //player.position.x +=1;
             movementOffsetY=1;
         }
-        if(position.y<0 && position.y >=-54){
-            NSLog(@"Up");
+        if(position.y<0 && position.y<=54){
+            NSLog(@"Down");
             joystickDirection=3;
             //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
             //player.position.y -=1;
             movementOffsetY=-1;
         }
-
     }
-    
 }
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     for (UITouch *touch in touches) {
         //[self touchUpAtPoint:[t locationInNode:self]];
         double xJoystickCoordinate = [touch locationInNode:joystick].x;
+        double yJoystickCoordinate = [touch locationInNode:joystick].y;
         CGFloat xLimit = 200.0;
+        CGFloat yLimit = 200.0;
         if(xJoystickCoordinate>-xLimit && xJoystickCoordinate<xLimit){
+            [self resetKnobPosition];
+        }
+        if(yJoystickCoordinate-yLimit && yJoystickCoordinate<yLimit){
             [self resetKnobPosition];
         }
     }
@@ -201,19 +205,11 @@
     //[player runAction:move];
     
     if(!joystickAction){
-        movementOffset=0;
+        movementOffsetX=0;
         movementOffsetY=0;
     }
-    
-    if(joystickDirection==1){
-        //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
-    }
-    
-    if(joystickDirection==0){
-        //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
-    }
 
-    [player setPosition:CGPointMake(player.position.x+movementOffset, player.position.y+movementOffsetY)];
+    [player setPosition:CGPointMake(player.position.x+movementOffsetX, player.position.y+movementOffsetY)];
     
 }
 
