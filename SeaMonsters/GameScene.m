@@ -7,6 +7,7 @@
 
 #import "GameScene.h"
 #import "CoreMotion/CoreMotion.h"
+#import "GameKit/GameKit.h"
 
 @implementation GameScene {
     SKShapeNode *_spinnyNode;
@@ -30,6 +31,7 @@
     BOOL joystickDirection;
     int movementOffsetX;
     int movementOffsetY;
+    NSTimer *gameTimer;
 }
 
 - (void)didMoveToView:(SKView *)view {
@@ -60,6 +62,8 @@
         [particles advanceSimulationTime:10];
         [self addChild:particles];
     }
+    
+    gameTimer = [NSTimer scheduledTimerWithTimeInterval:4.0 target:self selector:@selector(createEnemy) userInfo:nil repeats:YES];
     
 //    // Setup your scene here
 //
@@ -214,6 +218,26 @@
     [player setPosition:CGPointMake(player.position.x+movementOffsetX, player.position.y+movementOffsetY)];
     
     
+}
+
+-(void) createEnemy{
+    id randomDistribution = [GKRandomDistribution distributionWithLowestValue:-350 highestValue:350];
+    //SKNode *sprite = [self childNodeWithName:@"HermitCrab"];
+    //SKSpriteNode *sprite = [SKSpriteNode nodeWithFileNamed:@"HermitCrab"];
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"HermitCrab.png"];
+    double aspectRatio = sprite.size.width/sprite.size.height;
+    CGFloat preferredWidth = 60;
+    sprite.size = CGSizeMake( preferredWidth,preferredWidth/aspectRatio );
+    
+    [sprite setPosition:CGPointMake(200, [randomDistribution nextInt])];
+    [sprite setName:@"enemy"];
+    [sprite setZPosition:1];
+    [self addChild:sprite];
+    
+    [sprite setPhysicsBody:[SKPhysicsBody bodyWithTexture: [sprite texture] size: [sprite size]]];
+    //[sprite setPhysicsBody:[SKPhysicsBody bodyWithCircleOfRadius:200]];
+    [sprite.physicsBody setVelocity:CGVectorMake(-500, 0)];
+    [sprite.physicsBody setLinearDamping:0];
 }
 
 @end
