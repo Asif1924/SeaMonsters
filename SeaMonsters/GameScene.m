@@ -10,11 +10,13 @@
 #import "GameKit/GameKit.h"
 
 @implementation GameScene {
+    SKSpriteNode *player;
+    SKSpriteNode *enemyHermitCrab; //= [SKSpriteNode spriteNodeWithImageNamed:@"HermitCrab.png"];
+
     SKShapeNode *_spinnyNode;
     SKLabelNode *_label;
     //Nodes
     SKNode *joystick;
-    SKSpriteNode *player;
     SKNode *joystickNob;
     CMMotionManager *motionManager;
     
@@ -41,7 +43,7 @@
 - (void)didMoveToView:(SKView *)view {
     scoreLabel = [[SKLabelNode alloc] initWithFontNamed:@"AvenirNextCondensed-Bold"];
     scoreLabel.zPosition=2;
-    [scoreLabel setPosition:CGPointMake(20, 300)];
+    [scoreLabel setPosition:CGPointMake(20, 160)];
     [self addChild:scoreLabel];
     score = 0;
     [scoreLabel setText:[NSString stringWithFormat:@"Score: %i",score]];
@@ -56,6 +58,9 @@
     playerSpeed = 4.0;
     
     player = [self childNodeWithName:@"Player"];
+    enemyHermitCrab = [self childNodeWithName:@"HermitCrab"];
+    //enemyHermitCrab = [SKSpriteNode spriteNodeWithImageNamed:@"HermitCrab.png"];
+    
     //player = [Level1 childNodeWithName:@"Player"];
     //player = [SKSpriteNode no childNodeWithName:@"Player"];
     joystick = [self childNodeWithName:@"Joystick"];
@@ -250,22 +255,24 @@
     id randomDistribution = [GKRandomDistribution distributionWithLowestValue:-350 highestValue:350];
     //SKNode *sprite = [self childNodeWithName:@"HermitCrab"];
     //SKSpriteNode *sprite = [SKSpriteNode nodeWithFileNamed:@"HermitCrab"];
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"HermitCrab.png"];
-    double aspectRatio = sprite.size.width/sprite.size.height;
+    //SKSpriteNode *enemyHermitCrab = [SKSpriteNode spriteNodeWithImageNamed:@"HermitCrab.png"];
+    enemyHermitCrab = [SKSpriteNode spriteNodeWithImageNamed:@"HermitCrab.png"];
+    //enemyHermitCrab = [self childNodeWithName:@"HermitCrab"];
+    double aspectRatio = enemyHermitCrab.size.width/enemyHermitCrab.size.height;
     CGFloat preferredWidth = 30;
-    sprite.size = CGSizeMake( preferredWidth,preferredWidth/aspectRatio );
+    enemyHermitCrab.size = CGSizeMake( preferredWidth,preferredWidth/aspectRatio );
     
-    [sprite setPosition:CGPointMake(200, [randomDistribution nextInt])];
-    [sprite setName:@"enemy"];
-    [sprite setZPosition:1];
-    [self addChild:sprite];
+    [enemyHermitCrab setPosition:CGPointMake(200, [randomDistribution nextInt])];
+    [enemyHermitCrab setName:@"enemy"];
+    [enemyHermitCrab setZPosition:1];
+    [self addChild:enemyHermitCrab];
     
-    [sprite setPhysicsBody:[SKPhysicsBody bodyWithTexture: [sprite texture] size: [sprite size]]];
+    [enemyHermitCrab setPhysicsBody:[SKPhysicsBody bodyWithTexture: [enemyHermitCrab texture] size: [enemyHermitCrab size]]];
     //[sprite setPhysicsBody:[SKPhysicsBody bodyWithCircleOfRadius:200]];
-    [sprite.physicsBody setVelocity:CGVectorMake(-100, 0)];
-    [sprite.physicsBody setLinearDamping:5];
-    [sprite.physicsBody setContactTestBitMask:1];
-    [sprite.physicsBody setCategoryBitMask:0];
+    [enemyHermitCrab.physicsBody setVelocity:CGVectorMake(-100, 0)];
+    [enemyHermitCrab.physicsBody setLinearDamping:5];
+    [enemyHermitCrab.physicsBody setContactTestBitMask:1];
+    [enemyHermitCrab.physicsBody setCategoryBitMask:0];
 }
 
 -(void) didBeginContact:(SKPhysicsContact *)contact {
@@ -275,10 +282,11 @@
     if(nodeA==nil) return;
     if(nodeB==nil) return;
     
+    //if(nodeA==player && nodeB==enemyHermitCrab)
     if(nodeA==player)
        [self playerHit: nodeB];
-    else
-        [self playerHit:nodeA];
+    //else
+    //    [self playerHit:nodeA];
 }
 
 -(void) playerHit: (SKNode *) node {
