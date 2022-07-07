@@ -32,9 +32,20 @@
     int movementOffsetX;
     int movementOffsetY;
     NSTimer *gameTimer;
+    
+    //Score
+    SKLabelNode * scoreLabel;
+    int score;
 }
 
 - (void)didMoveToView:(SKView *)view {
+    scoreLabel = [[SKLabelNode alloc] initWithFontNamed:@"AvenirNextCondensed-Bold"];
+    scoreLabel.zPosition=2;
+    [scoreLabel setPosition:CGPointMake(20, 300)];
+    [self addChild:scoreLabel];
+    score = 0;
+    [scoreLabel setText:[NSString stringWithFormat:@"Score: %i",score]];
+    
     movementOffsetX = 0;
     movementOffsetY = 0;
     knobRadius = 50.0;
@@ -271,7 +282,8 @@
 }
 
 -(void) playerHit: (SKNode *) node {
-    [player removeFromParent];
+    //[player removeFromParent];
+    NSLog(@"Hit!!");
 }
 
 @end
