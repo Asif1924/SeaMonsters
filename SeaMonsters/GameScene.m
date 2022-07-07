@@ -292,6 +292,8 @@
 -(void) playerHit: (SKNode *) node {
     //[player removeFromParent];
     NSLog(@"Hit!!");
+    score++;
+    [scoreLabel setText:[NSString stringWithFormat:@"Score: %i",score]];
 }
 
 @end
