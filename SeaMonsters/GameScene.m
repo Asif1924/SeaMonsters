@@ -14,7 +14,7 @@
     SKLabelNode *_label;
     //Nodes
     SKNode *joystick;
-    SKNode *player;
+    SKSpriteNode *player;
     SKNode *joystickNob;
     CMMotionManager *motionManager;
     
@@ -64,6 +64,14 @@
     }
     
     gameTimer = [NSTimer scheduledTimerWithTimeInterval:4.0 target:self selector:@selector(createEnemy) userInfo:nil repeats:YES];
+    
+    //player setPhysicsBody:<#(SKPhysicsBody * _Nullable)#>
+    //[player setPhysicsBody:[SKPhysicsBody bodyWithTexture: [player texture] size: [player size]]];
+    [player setPhysicsBody: [SKPhysicsBody  bodyWithTexture: [player texture] size: [player size]]];
+    player.physicsBody.categoryBitMask=1;
+    
+    self.physicsWorld.contactDelegate=self;
+    
     
 //    // Setup your scene here
 //
@@ -128,7 +136,7 @@
     //UITouch *touch = [[event allTouches] anyObject];
     if(!joystickAction)
         return;
-    
+    NSString *direction = @"";
     for(UITouch *touch in touches) {
         
         CGPoint position = [touch locationInNode:joystick];
@@ -142,33 +150,39 @@
         }
         
         if(position.x>0 && position.x <=54){
-            NSLog(@"Right");
+            direction = @"Right";
+            //NSLog(direction);
+            
             joystickDirection=1;
             //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
             //player.position.x +=1;
             movementOffsetX=3;
         }
         if(position.x<0 && position.x >=-54){
-            NSLog(@"Left");
+            direction = @"Left";
+            //NSLog(direction);
             joystickDirection=0;
             //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
             //player.position.y -=1;
             movementOffsetX=-3;
         }
-        if(position.y>0 && position.y>=-54){
-            NSLog(@"Up");
+        if(position.y>0 && position.y<=54){
+            direction = @"Up";
+            //NSLog(direction);
             joystickDirection=2;
             //[player setPosition:CGPointMake(player.position.x+1, player.position.y)];
             //player.position.x +=1;
             movementOffsetY=-3;
         }
-        if(position.y<0 && position.y<=54){
-            NSLog(@"Down");
+        if(position.y<0 && position.y>=-54){
+            direction = @"Down";
+            //NSLog(direction);
             joystickDirection=3;
             //[player setPosition:CGPointMake(player.position.x-1, player.position.y)];
             //player.position.y -=1;
             movementOffsetY=3;
         }
+        NSLog(@"%@", [NSString stringWithFormat:@"dir=%@, position.x=%f, position.y=%f",direction, position.x,position.y]);
     }
 }
 
@@ -182,11 +196,11 @@
         if(xJoystickCoordinate>-xLimit && xJoystickCoordinate<xLimit){
             [self resetKnobPosition];
         }
-        /*
+        
         if(yJoystickCoordinate>-yLimit && yJoystickCoordinate<yLimit){
             [self resetKnobPosition];
         }
-         */
+        
     }
 }
 
@@ -204,12 +218,13 @@
 -(void)update:(CFTimeInterval)currentTime {
     CFTimeInterval deltaTime = currentTime - previousTimeInterval;
     previousTimeInterval = currentTime;
-    
+    /*
     double xPosition = joystickNob.position.x;
+    double yPosition = joystickNob.position.y;
     CGVector displacement = CGVectorMake(deltaTime * xPosition * playerSpeed, 0);
     SKAction *move = [SKAction moveBy:displacement duration:0];
     //[player runAction:move];
-    
+    */
     if(!joystickAction){
         movementOffsetX=0;
         movementOffsetY=0;
@@ -226,7 +241,7 @@
     //SKSpriteNode *sprite = [SKSpriteNode nodeWithFileNamed:@"HermitCrab"];
     SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"HermitCrab.png"];
     double aspectRatio = sprite.size.width/sprite.size.height;
-    CGFloat preferredWidth = 60;
+    CGFloat preferredWidth = 30;
     sprite.size = CGSizeMake( preferredWidth,preferredWidth/aspectRatio );
     
     [sprite setPosition:CGPointMake(200, [randomDistribution nextInt])];
@@ -236,8 +251,27 @@
     
     [sprite setPhysicsBody:[SKPhysicsBody bodyWithTexture: [sprite texture] size: [sprite size]]];
     //[sprite setPhysicsBody:[SKPhysicsBody bodyWithCircleOfRadius:200]];
-    [sprite.physicsBody setVelocity:CGVectorMake(-500, 0)];
-    [sprite.physicsBody setLinearDamping:0];
+    [sprite.physicsBody setVelocity:CGVectorMake(-100, 0)];
+    [sprite.physicsBody setLinearDamping:5];
+    [sprite.physicsBody setContactTestBitMask:1];
+    [sprite.physicsBody setCategoryBitMask:0];
+}
+
+-(void) didBeginContact:(SKPhysicsContact *)contact {
+    SKNode *nodeA = contact.bodyA.node;
+    SKNode *nodeB = contact.bodyB.node;
+    
+    if(nodeA==nil) return;
+    if(nodeB==nil) return;
+    
+    if(nodeA==player)
+       [self playerHit: nodeB];
+    else
+        [self playerHit:nodeA];
+}
+
+-(void) playerHit: (SKNode *) node {
+    [player removeFromParent];
 }
 
 @end
